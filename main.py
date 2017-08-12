@@ -65,7 +65,7 @@ class Bot:
         except ValueError:
             pass
         
-        await client.send_message(channel, "This channel now accepts every kind of message !")
+        await client.send_message(channel, "This channel now accepts every kind of messages !")
 
     def mentionned(self, message):
         return any (mention.id == client.user.id for mention in message.mentions)
@@ -78,6 +78,13 @@ class Bot:
 
         if command.startswith("help"):
             await self.help(message.author)
+
+        permissions = message.channel.permissions_for(message.author)
+
+        #Quick and dirty permission check
+        if not permissions.manage_channels and command.startswith("album"):
+            self.pm(message.author, "You don't have the permission to execute {}".format(command))
+            return
 
         if command.startswith("albumon"):
             await self.register_album_channel(message.channel)

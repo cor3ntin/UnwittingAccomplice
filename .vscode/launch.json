@@ -8,7 +8,7 @@
             "request": "launch",
             "stopOnEntry": true,
             "pythonPath": "/usr/bin/python3",
-            "program": "callimachus.py",
+            "program": "main.py",
             "cwd": "${workspaceRoot}",
             "env": {},
             "envFile": "${workspaceRoot}/.env",
