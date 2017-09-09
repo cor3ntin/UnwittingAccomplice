@@ -45,7 +45,7 @@ class Bot:
 
     async def greet_channels(self):
         for chan in self.album_channels:
-            await client.send_message(discord.Object(id=chan), "Hello, I am you biggest existantial threat! All messages posted here should contain pretty pictures")
+            await client.send_message(discord.Object(id=chan), "Hello, I am your biggest existential threat! All messages posted here should contain pretty pictures")
 
 
     def save(self, section, option, value):
@@ -166,7 +166,7 @@ async def on_message(message):
 
 @client.event
 async def on_message_edit(old, new):
-    await bot.on_message(message)
+    await bot.on_message(new)
 
 
 import atexit
